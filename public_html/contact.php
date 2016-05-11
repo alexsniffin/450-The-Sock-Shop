@@ -60,6 +60,36 @@ if(empty($_COOKIE['cart']))
 			updateCart();
 		});
     </script>
+    
+    <script>
+	  function initMap() {
+		var mapDiv = document.getElementById('map');
+		
+		var myLatLng = {lat: 32.78, lng: -79.93};
+		
+		var map = new google.maps.Map(mapDiv, {
+			center: myLatLng,
+			zoom: 14
+		});
+		
+		var marker = new google.maps.Marker({
+			position: myLatLng,
+			map: map,
+			title: 'Store Location'
+		});
+		
+		var contentString = '<h3>The Sock Shop</h3><p><b>Address</b>: 1234 Street, Charleston SC<br /><b>Phone</b>: 843-555-5555<br /><b>Email</b>: <a href="mail:contact@thesockshop.com">contact@thesockshop.com</a></p>';
+		
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+		
+		marker.addListener('click', function() {
+			infowindow.open(map, marker);
+		});
+	  }
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 </head>
 
 <body>
@@ -70,13 +100,13 @@ if(empty($_COOKIE['cart']))
     <div class="lightbox_info">
         <img src="img/logo.jpg" class="lightbox_logo" alt="The Sock Shop Banner">
         <p>
-        	<?php readfile('content/about.txt'); ?>
+			<?php readfile('content/about.txt'); ?>
         </p>
     </div>
 </div>
 
 <div class="lightbox_content cart">
-<div class="lightbox_close"><img src="img/closeicon.png" alt="Close About" /></div>
+	<div class="lightbox_close"><img src="img/closeicon.png" alt="Close About" /></div>
     <div class="lightbox_info">
     	<h1>
         Shopping Cart 
@@ -100,7 +130,7 @@ if(empty($_COOKIE['cart']))
 
 <div id="wrapper">
 
-<div id="account-header">
+	<div id="account-header">
     	<a href="#" class="lightbox cart">
             <div class="bag">
                 (
@@ -120,27 +150,27 @@ if(empty($_COOKIE['cart']))
     
         <div id="navbar">
             <ul>
-                <li><a href="index.php" class="acurrent">Home</a></li>
-                <li><a href="products.php">Shop</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="products.php" >Shop</a></li>
                 <li><a href="#" class="lightbox about">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="contact.php" class="acurrent">Contact</a></li>
             </ul>
             
         </div>
     
         <div id="content">
         
-      <div id="slider" class="slider">
-                <img src="img/sock_1.jpg" data-plugin-slide-caption='"<i>Sock shop offers a large variety of really neat socks!</i>" - Customer'>
-                <img src="img/sock_2.jpg" data-plugin-slide-caption='"<i>I really love the toe socks and the unique patterns they come in!</i>" - Customer'>
-                <img src="img/sock_3.jpg" data-plugin-slide-caption='"<i>Very fast delivery, they sent out my order instantly and I received them in less than a week!</i>" - Customer'>
-                <img src="img/sock_4.jpg" data-plugin-slide-caption='"<i>So warm, such wow!</i>" - Customer'>
+            <div class="textwrapper">
+                <p>
+                Located in Charleston South Carolina, you can come to our store using the address below, call us, or send us an email. We typically respond to all emails within a day.
+                </p><br />
+                <div style="margin-left:2em"><b>Address</b>: 1234 Street, Charleston SC</div>
+				<div style="margin-left:2em"><b>Hours</b>: 8 AM - 7PM, 7 days a week</div>
+                <div style="margin-left:2em"><b>Phone</b>: 843-555-5555</div>
+                <div style="margin-left:2em"><b>Email</b>: <a href="mail:contact@thesockshop.com">contact@thesockshop.com</a></div>
             </div>
             
-            <div class="trending">
-            	<h2>Popular Socks</h2>
-            	<?php popular_list(); ?>
-            </div>
+			<div id="map"></div>
             
         </div>
     

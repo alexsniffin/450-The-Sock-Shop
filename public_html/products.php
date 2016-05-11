@@ -70,13 +70,13 @@ if(empty($_COOKIE['cart']))
     <div class="lightbox_info">
         <img src="img/logo.jpg" class="lightbox_logo" alt="The Sock Shop Banner">
         <p>
-        	<?php readfile('content/about.txt'); ?>
+			<?php readfile('content/about.txt'); ?>
         </p>
     </div>
 </div>
 
 <div class="lightbox_content cart">
-<div class="lightbox_close"><img src="img/closeicon.png" alt="Close About" /></div>
+	<div class="lightbox_close"><img src="img/closeicon.png" alt="Close About" /></div>
     <div class="lightbox_info">
     	<h1>
         Shopping Cart 
@@ -100,7 +100,7 @@ if(empty($_COOKIE['cart']))
 
 <div id="wrapper">
 
-<div id="account-header">
+    <div id="account-header">
     	<a href="#" class="lightbox cart">
             <div class="bag">
                 (
@@ -120,8 +120,8 @@ if(empty($_COOKIE['cart']))
     
         <div id="navbar">
             <ul>
-                <li><a href="index.php" class="acurrent">Home</a></li>
-                <li><a href="products.php">Shop</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="products.php" class="acurrent">Shop</a></li>
                 <li><a href="#" class="lightbox about">About</a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
@@ -129,17 +129,10 @@ if(empty($_COOKIE['cart']))
         </div>
     
         <div id="content">
-        
-      <div id="slider" class="slider">
-                <img src="img/sock_1.jpg" data-plugin-slide-caption='"<i>Sock shop offers a large variety of really neat socks!</i>" - Customer'>
-                <img src="img/sock_2.jpg" data-plugin-slide-caption='"<i>I really love the toe socks and the unique patterns they come in!</i>" - Customer'>
-                <img src="img/sock_3.jpg" data-plugin-slide-caption='"<i>Very fast delivery, they sent out my order instantly and I received them in less than a week!</i>" - Customer'>
-                <img src="img/sock_4.jpg" data-plugin-slide-caption='"<i>So warm, such wow!</i>" - Customer'>
-            </div>
             
             <div class="trending">
-            	<h2>Popular Socks</h2>
-            	<?php popular_list(); ?>
+            	<h2>Socks</h2>
+                <?php product_list(); ?>
             </div>
             
         </div>
